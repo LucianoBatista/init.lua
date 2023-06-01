@@ -46,4 +46,33 @@ return require("packer").startup(function(use)
 	})
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("github/copilot.vim")
+	-- install without yarn or npm
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
+
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
+	use("mhinz/vim-startify")
+	use("nvim-tree/nvim-tree.lua")
+	use("nvim-tree/nvim-web-devicons")
+	use("christoomey/vim-tmux-navigator")
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
+	use({
+		"lewis6991/gitsigns.nvim",
+		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+	})
+	use("mechatroner/rainbow_csv")
 end)
