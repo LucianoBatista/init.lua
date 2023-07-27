@@ -9,15 +9,14 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local sources = {
 
 	-- webdev stuff
-	b.formatting.prettier.with({ filetypes = { "html", "markdown", "css" } }), -- so prettier works only on these filetypes
+	b.formatting.prettier.with({ filetypes = { "html", "markdown", "css", "json" } }), -- so prettier works only on these filetypes
 
 	-- Lua
 	b.formatting.stylua,
 
 	-- python
 	b.formatting.black,
-	b.formatting.isort.with({ extra_args = { "--style=black" } }),
-	b.diagnostics.ruff,
+	b.formatting.isort.with({ extra_args = { "--style=black" } })
 }
 
 null_ls.setup({

@@ -49,13 +49,6 @@ return require("packer").startup(function(use)
 	-- install without yarn or npm
 	use({
 		"iamcco/markdown-preview.nvim",
-		run = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	})
-
-	use({
-		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
@@ -75,4 +68,18 @@ return require("packer").startup(function(use)
 		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
 	})
 	use("mechatroner/rainbow_csv")
+	use({
+		"ray-x/lsp_signature.nvim",
+	})
+	use({
+		"preservim/vim-pencil",
+		opt = false,
+		config = function()
+			vim.g.tex_conceal = ""
+			vim.g["pencil#conseallevel"] = 0
+			vim.g["pencil#wrapModeDefault"] = "soft"
+		end,
+	})
+	use({ "junegunn/goyo.vim" })
+	use({ "preservim/vim-markdown" })
 end)
