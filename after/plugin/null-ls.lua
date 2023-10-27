@@ -14,9 +14,12 @@ local sources = {
 	-- Lua
 	b.formatting.stylua,
 
+	-- Kotlin
+	b.formatting.ktlint,
+
 	-- python
 	b.formatting.black,
-	b.formatting.isort.with({ extra_args = { "--style=black" } })
+	b.formatting.isort.with({ extra_args = { "--style=black" } }),
 }
 
 null_ls.setup({
